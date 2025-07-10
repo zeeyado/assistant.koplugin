@@ -1,0 +1,108 @@
+-- Configuration for KOReader Assistant Plugin
+-- Copy this file to configuration.lua and modify as needed
+-- All settings are optional - uncomment to override defaults
+
+local CONFIGURATION = {
+    -- AI provider: "anthropic", "openai", "deepseek", "gemini", or "ollama"
+    -- provider = "anthropic",
+    
+    -- Override the default model for your provider
+    -- model = "claude-3-5-haiku-20241022",
+    
+    -- Provider-specific settings (uncomment to override defaults)
+    --[[
+    provider_settings = {
+        anthropic = {
+            model = "claude-sonnet-4-20250514",
+            base_url = "https://api.anthropic.com/v1/messages",
+            additional_parameters = {
+                anthropic_version = "2023-06-01",
+                max_tokens = 4096
+            }
+        },
+        openai = {
+            model = "gpt-4.1",
+            base_url = "https://api.openai.com/v1/chat/completions",
+            additional_parameters = {
+                temperature = 0.7,
+                max_tokens = 4096
+            }
+        },
+        deepseek = {
+            model = "deepseek-chat",
+            base_url = "https://api.deepseek.com/v1/chat/completions",
+            additional_parameters = {
+                temperature = 0.7,
+                max_tokens = 4096
+            }
+        },
+        gemini = {
+            model = "gemini-pro",
+            base_url = "https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent",
+            additional_parameters = {
+                temperature = 0.7
+            }
+        },
+        ollama = {
+            model = "deepseek-r1:14b",  -- or "llama3", "mistral", "mixtral", etc.
+            base_url = "http://localhost:11434/api/chat",  -- replace with your Ollama server
+            additional_parameters = {
+                temperature = 0.7
+            }
+        }
+    },
+    --]]
+
+    -- Display and behavior settings
+    features = {
+        -- Text display
+        hide_highlighted_text = false,      -- Hide highlighted text in responses
+        hide_long_highlights = true,        -- Replace long highlights with "..."
+        long_highlight_threshold = 280,     -- Characters before highlight is "long"
+        
+        -- Translation
+        translate_to = "English",           -- Default translation target language
+        
+        -- Response rendering
+        render_markdown = true,             -- Format responses (bold, lists, etc.)
+        markdown_font_size = 20,            -- Font size for formatted text (14-30)
+        
+        -- Chat management
+        auto_save_chats = true,             -- Auto-save when continuing from history
+        auto_save_all_chats = false,        -- Auto-save all new chats
+        
+        -- Development
+        debug = false,                      -- Show detailed message information
+        
+        -- Future features (not yet implemented)
+        -- stream_responses = false,        -- Show responses as they generate
+    },
+    
+    -- Override AI instructions (uncomment to customize)
+    --[[
+    ai_instructions = {
+        -- System prompts for different contexts
+        system_prompts = {
+            default = "You are a helpful assistant.",
+            highlight = "You are a reading companion helping understand selected text.",
+            book = "You are a librarian providing insights about books.",
+            multi_book = "You are a literary analyst comparing book collections.",
+            general = "You are Claude, an AI assistant ready to help.",
+            translation = "Translate accurately, preserving meaning and tone.",
+        },
+        
+        -- Action templates (use {variable} for substitutions)
+        action_templates = {
+            translate = "Translate to {language}: {text}",
+        },
+        
+        -- Error message templates
+        error_templates = {
+            api_key_missing = "Please add your {provider} API key to apikeys.lua",
+            config_invalid = "Configuration error: {error}",
+        }
+    },
+    --]]
+}
+
+return CONFIGURATION

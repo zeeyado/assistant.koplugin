@@ -1,0 +1,31 @@
+-- Sample API keys file
+-- Rename this file to apikeys.lua and replace the placeholders with your actual API keys
+--
+-- This is one of three user-configurable files:
+-- 1. apikeys.lua - API credentials for AI providers (this file)
+-- 2. custom_prompts.lua - User-defined prompts and actions
+-- 3. configuration.lua - Advanced settings and provider overrides
+
+return {
+    -- Anthropic API key (Claude models)
+    -- Get from: https://console.anthropic.com/
+    anthropic = "YOUR_ANTHROPIC_API_KEY",
+    
+    -- OpenAI API key (GPT models)
+    -- Get from: https://platform.openai.com/
+    openai = "YOUR_OPENAI_API_KEY",
+    
+    -- DeepSeek API key
+    -- Get from: https://platform.deepseek.com/
+    deepseek = "YOUR_DEEPSEEK_API_KEY",
+    
+    -- Google Gemini API key
+    -- Get from: https://aistudio.google.com/
+    gemini = "YOUR_GEMINI_API_KEY",
+    
+    -- Ollama typically doesn't need an API key if running locally
+    -- If using a remote Ollama instance, you can set a key here if required
+    ollama = "",
+    
+    -- Add any other provider API keys here
+} 

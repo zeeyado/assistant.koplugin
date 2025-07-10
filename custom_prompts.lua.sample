@@ -1,0 +1,89 @@
+-- Custom prompts for KOReader Assistant Plugin
+-- Copy this file to custom_prompts.lua to add your own prompts
+-- You can also manage prompts through the UI: Tools > Assistant > Settings > Manage Prompts
+
+--[[
+Each prompt must have:
+  - text: Button text shown in the UI (required)
+  - user_prompt: The prompt template sent to the AI (required)
+
+Optional fields:
+  - context: Where this prompt appears (required for file-based prompts)
+    • "highlight" - When text is highlighted
+    • "book" - When accessing from file browser  
+    • "multi_book" - When multiple books selected
+    • "general" - No specific context (Tools menu)
+    • "both" - Appears in highlight AND book contexts
+  - system_prompt: Override AI behavior for this prompt
+  - provider: Use specific AI provider ("anthropic", "openai", etc.)
+  - model: Use specific model
+  - enabled: Set to false to disable (default: true)
+  - include_book_context: Add book info to highlight prompts (default: false)
+
+Template variables:
+  - Highlight context: {highlighted_text}
+  - Book context: {title}, {author}, {author_clause}
+  - Multi-book context: {count}, {books_list}
+--]]
+
+return {
+    -- Highlight context examples
+    {
+        text = "Grammar Check",
+        context = "highlight",
+        system_prompt = "You are a grammar expert. Be concise and helpful.",
+        user_prompt = "Check the grammar and suggest improvements: {highlighted_text}"
+    },
+    
+    {
+        text = "Define Terms",
+        context = "highlight", 
+        user_prompt = "Define any technical or unusual terms in: {highlighted_text}",
+        include_book_context = true  -- Adds book title/author to the prompt
+    },
+    
+    -- Book context examples
+    {
+        text = "Book Review",
+        context = "book",
+        user_prompt = "Write a balanced review of '{title}'{author_clause}. Include strengths, weaknesses, and target audience."
+    },
+    
+    {
+        text = "Discussion Questions",
+        context = "book",
+        user_prompt = "Generate 5 thought-provoking discussion questions for '{title}'{author_clause}."
+    },
+    
+    -- Multi-book context examples
+    {
+        text = "Series Order",
+        context = "multi_book",
+        user_prompt = "Are any of these {count} books part of a series? If so, what's the reading order?\n\n{books_list}"
+    },
+    
+    -- General context examples
+    {
+        text = "Creative Writing",
+        context = "general",
+        system_prompt = "You are a creative writing assistant.",
+        user_prompt = "Help me with creative writing."
+    },
+    
+    -- Both contexts example (works for highlight AND single book)
+    {
+        text = "Literary Analysis",
+        context = "both",
+        user_prompt = "Provide a literary analysis of: {highlighted_text}",
+        provider = "anthropic",  -- Force specific provider
+        model = "claude-3-5-sonnet-20241022"  -- Force specific model
+    },
+    
+    -- Disabled prompt example
+    {
+        text = "Unused Prompt",
+        context = "general",
+        user_prompt = "This prompt won't appear in the menu",
+        enabled = false
+    }
+}
