@@ -48,7 +48,7 @@ Copy the sample file `apikeys.lua.sample` and rename to `apikeys.lua`
 
 Add at least one API key  
  
-3. **Restart KOReader** - You're ready to go! Set your desired provider and model in the settings UI.
+3. **Restart KOReader** - You're ready to go! Set your desired provider and model in the settings UI (Tools -> page 2 -> Assistant (under "More tools")
 
 ### Minimum Requirements
 
