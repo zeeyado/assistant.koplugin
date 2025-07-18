@@ -74,17 +74,18 @@ You have to do this for both Reader view and File browser. This will give you an
 
 You can also assign any gesture to any action as you see fit.
 
-### 2. Optimize Your Reading Experience
+### 2. Enable/disable prompts and create custom actions
+
+- Go to Asstant settings -> Prompts & Responses -> Manage prompts
+- Enable/disable the builtin prompts
+- Create you own custom prompts in custom_prompts.lua
+
+
+### 3. Getting Started Tips
 
 - **Well-formatted metadata** enhances AI responses - use e.g Calibre or Zotero to ensure your books and papers have proper titles, authors, and ISBNs
 - **Adjust highlight settings** - Set shorter tap duration for single words in Settings → Taps and Gestures
 - **Choose your model wisely** - Fast models for quick queries, powerful models (e.g. Claude Sonnet 4) for complex analysis (you can create custom prompts using specific models to override the default for that prompt)
-
-### 3. Getting Started Tips
-
-- **Free tier options**: DeepSeek offers generous free usage, Anthropic and OpenAI have free trials
-- **Local option**: Use Ollama for completely offline AI (requires a computer running Ollama server)
-- **Quick vs Quality**: Claude Haiku and GPT-4o-mini are lightning fast, while Claude Sonnet and GPT-4o provide superior analysis
 
 
 ## Feature Overview
