@@ -10,51 +10,48 @@ You can:
 - Hihglight text in a book and have it explained, or chat about it, etc
 - Save and continue chats 
 - Use different AI models (for speed/depth, etc)
+- Map functions to gestures and pop up menus for quick actions
 - Much more using custom prompts/actions
 
 A wiki will be made for creating custom prompts and actions, and other advanced configuration and usage. 
 
 Originally forked from [ASKGPT by Drew Baumann](https://github.com/drewbaumann/askgpt). See Credits and history at the bottom of this readme
 
+This plugin was made for personal use and made public in case it is useful. Many functions are still under development, and many are untested. More providers will be added shortly. feel free to open a feature request or issue, or start a discussion.
 
 ## Quick Minimal Setup
 
 **Get started in 3 simple steps:**
 
-Download: (Code (at top of this page) -> Download ZIP
-
-or Clone:
-
-or Download latest release
-
 1. **Install the plugin**
-   Download: (Code (at top of this page) -> Download ZIP
-   or Clone: `git clone https://github.com/zeeyado/assistant.koplugin`
-   or Download latest release
 
-   ```bash
-   # Clone or download this repository, or grab the latest release
-   git clone https://github.com/zeeyado/assistant.koplugin
+Download: (Code (at top right of this page) -> Download ZIP. 
 
-   # Rename and place in your KOReader plugins directory:
+or Clone: `git clone https://github.com/zeeyado/assistant.koplugin`
+
+or Download latest release (not yet available)
+
+Rename and place in your KOReader plugins directory:
+
+   ```
    # Kobo/Kindle: /mnt/onboard/.adds/koreader/plugins/assistant.koplugin/
    # Android: /sdcard/koreader/plugins/assistant.koplugin/
    # macOS: ~/Library/Application Support/koreader/plugins/assistant.koplugin/
    ```
+
+
 2. **Add your API key(s)**
 
-   ```bash
-   # Copy the sample file and rename
-   cp apikeys.lua.sample apikeys.lua
+Copy the sample file `apikeys.lua.sample` and rename to `apikeys.lua`
 
-   # Edit apikeys.lua and add at least one API key
-   ```
+Add at least one API key  
+ 
 3. **Restart KOReader** - You're ready to go! Set your desired provider and model in the settings UI.
 
 ### Minimum Requirements
 
 - KOReader version 2023.04 or newer
-- At least one API key from: [Anthropic](https://console.anthropic.com/), [OpenAI](https://platform.openai.com/), [DeepSeek](https://platform.deepseek.com/), [Google](https://aistudio.google.com/), or local Ollama (more providers are being added)
+- At least one API key from: [Anthropic](https://console.anthropic.com/), [OpenAI](https://platform.openai.com/), [DeepSeek](https://platform.deepseek.com/), [Google](https://aistudio.google.com/) (more providers are being added)
 
 ## HIGHLY Recommended Initial Setup
 
@@ -62,22 +59,24 @@ or Download latest release
 
 **Basic one time steps ease of use**
 
-**In Reader View (while reading):**
+Examples (my usage preference; you can use whichever gestures you like):
 
-- tGo to Settings → Gesture Manager → Multiswipe
-- Assign "Assistant: Ask" to a two-finger swipe
-- Assign "Assistant: Quick Translate" to another gesture
+**In Reader View (while reading) and in File browser:**
 
-**In File Browser:**
+- Go to Settings → Gesture Manager → Tap corner → Bottom left
+- General → (add all Assistant actions -- Chat history, Continue last chat, Chat about book, etc)
+- Select "Show as QuickMenu"
+-
 
-- Assign "Assistant: General Chat" for quick AI conversations
-- Assign "Assistant: Settings" for easy configuration access
+You have to do this for both Reader view and File browser. This will give you an easy to access Assistant menu.
+
+You can also assign any gesture to any action as you see fit.
 
 ### 2. Optimize Your Reading Experience
 
 - **Well-formatted metadata** enhances AI responses - use e.g Calibre or Zotero to ensure your books and papers have proper titles, authors, and ISBNs
 - **Adjust highlight settings** - Set shorter tap duration for single words in Settings → Taps and Gestures
-- **Choose your model wisely** - Fast models (Claude Haiku, GPT-4o-mini) for quick queries, powerful models (Claude Sonnet, GPT-4) for complex analysis (you can create custom prompts using specific models to override the default for that prompt)
+- **Choose your model wisely** - Fast models for quick queries, powerful models (e.g. Claude Sonnet 4) for complex analysis (you can create custom prompts using specific models to override the default for that prompt)
 
 ### 3. Getting Started Tips
 
@@ -85,38 +84,40 @@ or Download latest release
 - **Local option**: Use Ollama for completely offline AI (requires a computer running Ollama server)
 - **Quick vs Quality**: Claude Haiku and GPT-4o-mini are lightning fast, while Claude Sonnet and GPT-4o provide superior analysis
 
+
 ## Feature Overview
 
 ### Core Features
 
-**📖 In-Book Assistant**
+**In-Book Assistant**
 
 - **Highlight & Ask**: Select any text and get instant explanations, translations, or summaries
 - **Context-Aware**: AI understands what book you're reading and provides relevant responses
 - **Quick Translate**: One-tap translation to your preferred language
 - **Custom Prompts**: Create specialized prompts/actions for your reading needs
 
-**📚 File Browser Integration**
+**File Browser Integration**
 
 - **Book Analysis**: Long-press any book to get summaries, reviews, or reading time estimates
 - **Multi-Book Comparison**: Select multiple books to compare themes, find reading order, or analyze your collection
 - **Author Information**: Get background on authors and historical context
 - **Custom Prompts**: Create specialized prompts/actions
 
-**💬 General Chat**
+**General Chat**
 
 - **No Context Required**: Start AI conversations without selecting text or books -- just have a regular Chat with the model of your choice
 - **Brainstorming Mode**: Creative writing assistance and idea generation
 - **Code Help**: Programming assistance with syntax highlighting
 
-**🔧 Advanced Features**
+**Advanced Features**
 
 - **Chat History**: Save, continue, and export conversations (auto save available in settings)
-- **Markdown Rendering**: Beautiful formatting with adjustable font sizes
+- **Markdown Rendering**: Beautiful formatting with adjustable font sizes (planned)
 - **Debug Mode**: See exactly what's sent to the AI to debug and improve your prompts
-- **Auto-Update**: Keep the plugin current with built-in update checking
-- **Multiple Providers**: Switch between AI providers on the fly
-- **Prompt management**: enable/disable built in and custom prompts in the UI
+- **Auto-Update**: Keep the plugin current with built-in update checking (planned)
+- **Multiple Providers**: Switch between AI providers on the fly (better UI implementation planned)
+- **Prompt management**: enable/disable built in and custom prompts in the UI (so you dont have to delete them)
+- **Profile for different tasks:** (planned feature). Have different sets of prompts/actions for different uses (e.g. Regular book reading vs Academic reading vs Specific case study, etc
 
 ### Unique Capabilities
 
