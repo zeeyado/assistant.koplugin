@@ -18,8 +18,7 @@ local ModelLists = {
     },
     deepseek = {
         "deepseek-chat",
-        "deepseek-coder",
-        "deepseek-lite",
+        "deepseek-reasoner",
     },
     gemini = {
         "gemini-2.5-pro",
