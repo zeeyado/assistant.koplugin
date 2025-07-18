@@ -210,15 +210,15 @@ return {
 
 **Book Context:**
 
-- Book Info, Find Similar, Reading Time, Author Background, Historical Context
+- Book Info, Find Similar, Author Background, Historical Context
 
 **Multi-Book Context:**
 
-- Compare Books, Common Themes, Reading Order, Collection Analysis
+- Compare Books, Common Themes, Collection Analysis
 
 **General Context:**
 
-- Ask, Brainstorm, Explain Topic, Code Help, Writing Assistance
+- Ask
 
 ## Planned Features
 
@@ -230,6 +230,7 @@ return {
 - **Voice Integration**: Text-to-speech for AI responses
 - **Batch Operations**: Process multiple highlights or books in one go
 - **Export Formats**: Save conversations as markdown, PDF, or EPUB
+- and more
 
 ## Current State
 
