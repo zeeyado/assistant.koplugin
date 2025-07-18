@@ -41,16 +41,8 @@ Please be concise but informative.]]
                 text = "Find Similar",
                 user_prompt = [[Based on the book "{title}"{author_clause}, recommend 5-7 similar books that readers might enjoy. For each recommendation, briefly explain why it's similar or why the reader might like it.]]
             },
-            reading_time = {
-                text = "Reading Time",
-                user_prompt = [[For the book "{title}"{author_clause}, estimate:
-- How long it would take an average reader to finish
-- What kind of commitment it requires
-- Whether it's a quick read or requires dedicated time
-- Any tips for getting the most out of reading it]]
-            },
             explain_author = {
-                text = "Explain Author",
+                text = "About Author",
                 user_prompt = [[Tell me about the author of "{title}"{author_clause}. Include:
 - Brief biography
 - Their major works and contributions
@@ -98,18 +90,6 @@ What common themes, topics, or patterns can you identify across this selection? 
 - Similar literary techniques or genres
 - Common target audiences or purposes]]
             },
-            reading_order = {
-                text = "Reading Order",
-                user_prompt = [[Given these {count} books:
-
-{books_list}
-
-Suggest an optimal reading order with brief explanations for why this sequence would be most beneficial. Consider:
-- Prerequisite knowledge
-- Chronological or historical progression
-- Complexity levels
-- Thematic connections]]
-            },
             collection_summary = {
                 text = "Analyze Collection",
                 user_prompt = [[Analyze this collection of {count} books:
@@ -130,24 +110,6 @@ Provide insights about:
 
 Focus on the main premise and why someone might want to read it.]]
             }
-        }
-    },
-    general_context = {
-        prompts = {
-            ask = {
-                text = "Ask",
-                user_prompt = "I have a question for you."
-            },
-            brainstorm = {
-                text = "Brainstorm",
-                system_prompt = "You are a creative assistant helping with brainstorming. Be imaginative and provide diverse ideas.",
-                user_prompt = "Let's brainstorm ideas together."
-            },
-            explain_topic = {
-                text = "Explain Topic",
-                system_prompt = "You are a knowledgeable assistant that explains topics clearly and comprehensively.",
-                user_prompt = "Please explain a topic to me."
-            },
         }
     }
 }
