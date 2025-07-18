@@ -19,6 +19,8 @@ Originally forked from [ASKGPT by Drew Baumann](https://github.com/drewbaumann/a
 
 This plugin was made for personal use and made public in case it is useful. Many functions are still under development, and many are untested. More providers will be added shortly. feel free to open a feature request or issue, or start a discussion.
 
+NB: Gemini and Deepseek have not been thorougly tested for response format. Anthropic and OpenAi have been tested well.
+
 ## Quick Minimal Setup
 
 **Get started in 3 simple steps:**
