@@ -36,8 +36,8 @@ local ProviderDefaults = {
     },
     gemini = {
         provider = "gemini",
-        model = "gemini-pro",
-        base_url = "https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent",
+        model = "gemini-1.5-flash",
+        base_url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent",
         additional_parameters = {
             temperature = 0.7
         }

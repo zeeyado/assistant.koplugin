@@ -29,8 +29,7 @@ function GeminiHandler:query(message_history, config)
     local requestBody = json.encode(request_body)
     local responseBody = {}
     local headers = {
-        ["Content-Type"] = "application/json",
-        ["Authorization"] = "Bearer " .. config.api_key
+        ["Content-Type"] = "application/json"
     }
 
     -- Add API key as query parameter
