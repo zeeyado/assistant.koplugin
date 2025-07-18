@@ -1,25 +1,47 @@
 # KOReader Assistant Plugin
 
-A powerful AI assistant seamlessly integrated into KOReader, bringing Claude, GPT-4, and other language models directly to your e-reader. Ask questions about what you're reading, get translations, summaries, and engage in intelligent conversations - all without leaving your book.
+A powerful AI assistant integrated into KOReader.
 
-This plugin integrates AI capabilities directly into the KOReader e-reader experience. It allows users to chat about documents, highlight text and interact with AI models for various customizable tasks.
+You can:
 
-## Quick Setup
+- Have general chats (no context)
+- Select books and chat about them (using metadata lke title, author, etc)
+- Use and create custom actions to compare books, find common themes, etc
+- Hihglight text in a book and have it explained, or chat about it, etc
+- Save and continue chats 
+- Use different AI models (for speed/depth, etc)
+- Much more using custom prompts/actions
+
+A wiki will be made for creating custom prompts and actions, and other advanced configuration and usage. 
+
+Originally forked from [ASKGPT by Drew Baumann](https://github.com/drewbaumann/askgpt). See Credits and history at the bottom of this readme
+
+
+## Quick Minimal Setup
 
 **Get started in 3 simple steps:**
 
+Download: (Code (at top of this page) -> Download ZIP
+
+or Clone:
+
+or Download latest release
+
 1. **Install the plugin**
+   Download: (Code (at top of this page) -> Download ZIP
+   or Clone: `git clone https://github.com/zeeyado/assistant.koplugin`
+   or Download latest release
 
    ```bash
-   # Clone or download this repository
-   git clone https://github.com/yourusername/koreader-assistant
+   # Clone or download this repository, or grab the latest release
+   git clone https://github.com/zeeyado/assistant.koplugin
 
    # Rename and place in your KOReader plugins directory:
    # Kobo/Kindle: /mnt/onboard/.adds/koreader/plugins/assistant.koplugin/
    # Android: /sdcard/koreader/plugins/assistant.koplugin/
    # macOS: ~/Library/Application Support/koreader/plugins/assistant.koplugin/
    ```
-2. **Add your API key**
+2. **Add your API key(s)**
 
    ```bash
    # Copy the sample file and rename
@@ -27,20 +49,22 @@ This plugin integrates AI capabilities directly into the KOReader e-reader exper
 
    # Edit apikeys.lua and add at least one API key
    ```
-3. **Restart KOReader** - You're ready to go!
+3. **Restart KOReader** - You're ready to go! Set your desired provider and model in the settings UI.
 
 ### Minimum Requirements
 
 - KOReader version 2023.04 or newer
-- At least one API key from: [Anthropic](https://console.anthropic.com/), [OpenAI](https://platform.openai.com/), [DeepSeek](https://platform.deepseek.com/), [Google](https://aistudio.google.com/), or local Ollama
+- At least one API key from: [Anthropic](https://console.anthropic.com/), [OpenAI](https://platform.openai.com/), [DeepSeek](https://platform.deepseek.com/), [Google](https://aistudio.google.com/), or local Ollama (more providers are being added)
 
-## Highly Recommended Initial Setup
+## HIGHLY Recommended Initial Setup
 
 ### 1. Configure Gestures for Quick Access
 
+**Basic one time steps ease of use**
+
 **In Reader View (while reading):**
 
-- Go to Settings → Gesture Manager → Multiswipe
+- tGo to Settings → Gesture Manager → Multiswipe
 - Assign "Assistant: Ask" to a two-finger swipe
 - Assign "Assistant: Quick Translate" to another gesture
 
@@ -231,7 +255,7 @@ Note: The codebase is transitioning to a more unified message and prompt buildin
 
 ### Fork History
 
-Originally forked from [ASKGPT by Drew Baumann](https://github.com/drewbaumann/askgpt) in February 2025, expanded with some features (prompts customization and multiple providers, etc) and renamed to Assistant, at which point it was forked by other, and these forks are still in development. It was then taken private (and thus out of the fork network) for focused development and re-released publicly in July 2025, in a much expanded state. 
+Originally forked from [ASKGPT by Drew Baumann](https://github.com/drewbaumann/askgpt) in February 2025, expanded with some features (prompts customization and multiple providers, etc) and renamed to Assistant, at which point it was forked by others, and these forks are still in development. It was then taken private (and thus out of the fork network) for focused development and re-released publicly in July 2025, in a much expanded state. 
 
 ### Acknowledgments
 

@@ -126,20 +126,16 @@ function SettingsManager:createMenuItem(plugin, item, schema)
         
     elseif item.type == "number" then
         menu_item.callback = function()
-            local MultiInputDialog = require("ui/widget/multiinputdialog")
+            local InputDialog = require("ui/widget/inputdialog")
             local UIManager = require("ui/uimanager")
             local current_value = self:getSettingValue(plugin, item.path or item.id) or item.default
             
             local dialog
-            dialog = MultiInputDialog:new{
+            dialog = InputDialog:new{
                 title = item.text,
-                fields = {
-                    {
-                        text = tostring(current_value),
-                        hint = item.description,
-                        input_type = "number",
-                    },
-                },
+                description = item.description,
+                input = tostring(current_value),
+                input_type = "number",
                 buttons = {
                     {
                         {
@@ -151,7 +147,7 @@ function SettingsManager:createMenuItem(plugin, item, schema)
                         {
                             text = _("OK"),
                             callback = function()
-                                local value = tonumber(dialog:getField(1))
+                                local value = tonumber(dialog:getInputText())
                                 local valid, err = schema:validateSetting(item.id, value)
                                 if valid then
                                     self:setSettingValue(plugin, item.path or item.id, value)

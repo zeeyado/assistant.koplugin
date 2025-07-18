@@ -705,23 +705,6 @@ function AskGPT:onDispatcherRegisterActions()
     return
   end
   
-  -- Register main AI ask action
-  local success = Dispatcher:registerAction("assistant_ask", {
-    category = "none", 
-    event = "AskAssistant", 
-    title = _("Ask Assistant"), 
-    general = true
-  })
-  logger.info("Assistant: assistant_ask registered: " .. tostring(success))
-  
-  -- Register quick translate action
-  Dispatcher:registerAction("assistant_translate", {
-    category = "none", 
-    event = "AssistantTranslate", 
-    title = _("Assistant: Quick Translate"), 
-    general = true
-  })
-  
   -- Register chat history action
   Dispatcher:registerAction("assistant_chat_history", {
     category = "none", 
@@ -985,52 +968,6 @@ function AskGPT:showTranslationDialog()
 end
 
 -- Event handlers for gesture-triggered actions
-function AskGPT:onAskAssistant()
-  if not configuration then
-    UIManager:show(InfoMessage:new{
-      icon = "notice-warning",
-      text = _("Configuration not found. Please set up configuration.lua first.")
-    })
-    return true
-  end
-  
-  NetworkMgr:runWhenOnline(function()
-    if not updateMessageShown then
-      UpdateChecker.checkForUpdates()
-      updateMessageShown = true
-    end
-    -- Make sure we're using the latest configuration
-    self:updateConfigFromSettings()
-    -- Show dialog without highlighted text (general AI chat)
-    showChatGPTDialog(self.ui, nil, configuration, nil, self)
-  end)
-  return true
-end
-
-function AskGPT:onAssistantTranslate()
-  -- Check if we have highlighted text
-  if not self.ui or not self.ui.highlight or not self.ui.highlight.selected_text then
-    UIManager:show(InfoMessage:new{
-      icon = "notice-warning",
-      text = _("Please highlight some text first")
-    })
-    return true
-  end
-  
-  local highlighted_text = self.ui.highlight.selected_text.text
-  NetworkMgr:runWhenOnline(function()
-    if not updateMessageShown then
-      UpdateChecker.checkForUpdates()
-      updateMessageShown = true
-    end
-    -- Make sure we're using the latest configuration
-    self:updateConfigFromSettings()
-    -- Show dialog with translate prompt
-    showChatGPTDialog(self.ui, highlighted_text, configuration, "translate", self)
-  end)
-  return true
-end
-
 function AskGPT:onAssistantChatHistory()
   -- Use the same implementation as the settings menu
   self:showChatHistory()
@@ -1710,12 +1647,6 @@ function AskGPT:showAbout()
           (UpdateChecker.getCurrentVersion() or "Unknown") .. 
           "\nProvides AI assistant capabilities via various API providers." ..
           "\n\nGesture Support:\nAssign gestures in Settings → Gesture Manager",
-  })
-end
-
-function AskGPT:showHelpDocs()
-  UIManager:show(InfoMessage:new{
-    text = _("Documentation available at:\nhttps://github.com/koreader/koreader/wiki/User-patches\n\nFor support, please visit the KOReader forums."),
   })
 end
 
